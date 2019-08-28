@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const uuid = require('uuid');
 
 const PORT = process.env.PORT || 3002;
 
@@ -8,7 +9,7 @@ const PORT = process.env.PORT || 3002;
 app.use(bodyParser.json());
 
 app.get('/', (req, res)=> {
-    res.send('home page')
+    res.send(`Home page.\n generating a uniqueID: ${uuid()}`);
 })
 
 
