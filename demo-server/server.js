@@ -60,7 +60,7 @@ var sessionStore = new MySQLStore(options);
 //express session and passport session middleware
 app.use(session({
     genid: (req)=> {
-        return uuid(); //or use genuuid() that comes with express-session.
+        return uuid();
     },
     secret: 'f1w6e516sf6s1',
     store: sessionStore,
