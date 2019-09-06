@@ -4,11 +4,6 @@ import axios from 'axios';
 
 export default function Nav(props) {
 
-  let links = <GuestLinks /> ; 
-  if(props.isUserLogged === 'true'){
-    links = <UserLinks username={props.username}/> //lots of prop driling... I know..
-  }
-
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a id="cardrea-logo" className="navbar-brand" href="/">Demo-app</a>
@@ -18,7 +13,7 @@ export default function Nav(props) {
         
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
             
-        {links}
+      {(props.isUserLogged === 'true') ? <UserLinks username={props.username} /> : <GuestLinks /> }
 
       </div>
     </nav>
