@@ -8,6 +8,7 @@ const LocalStrategy = require('passport-local').Strategy;
 
 //Mock userdata. Remember user data should be stored in actual database
 //  the mysql conection is already set on /database folder.
+//Also! Always store the encrypted version of the password on the database! (you can use bcrypt.)
 const users = [{
     id: '001',
     name: 'userOne',
@@ -20,12 +21,12 @@ const users = [{
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//passport config (local strategie)
+//passport config (local strategy)
 passport.use(new LocalStrategy( 
     {usernameField: 'email'},
     (email, password, done) => {
-        const user = users[0]; // replace with call to database to find user!!
-        if(email===user.email && password===user.password) {
+        const user = users[0]; // replace with call to database to find user and apply proper verifications!
+        if(email === user.email && password === user.password) {
             return done(null, user)
         } else {
             return done(null, false)

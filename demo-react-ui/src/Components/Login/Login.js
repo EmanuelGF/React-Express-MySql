@@ -30,12 +30,14 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
-                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"/>
+                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" 
+                        placeholder="Enter email" autoComplete="current-email" required/>
     
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" id="passwd" placeholder="Password"/>
+                    <input type="password" className="form-control" id="passwd" placeholder="Password"
+                        autoComplete="current-password" required/>
                 </div>
     
                 <button type="submit" className="btn btn-primary">Submit</button>

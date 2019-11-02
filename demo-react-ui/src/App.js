@@ -1,3 +1,6 @@
+//Open Chrome dev tools to see the logs.
+//If you use this code on your project don't forget to remove the console logs.
+
 import React, {useState, useEffect} from 'react'
 import './App.css'
 import Nav from './Components/Nav/Nav'
@@ -27,6 +30,8 @@ import {
       })
   }, [isUserLogged, username]) 
 
+
+  //You can consider using the context api to provide the user object to child components.
   return (
     <div className="App container">
       <BrowserRouter>
