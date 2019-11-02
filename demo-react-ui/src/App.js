@@ -13,23 +13,19 @@ import {
   const [username, setUsername] = useState('')
 
   //This is used to get the user status and pass user data around.
-  function checkLoginStatus() {
+  useEffect(()=> {
     axios.get('/logged_in')
-    .then(response=> {
-      console.log(response)
-      if(response.data.logged_in && isUserLogged === 'false') {
-        setIsUserLogged(true)
-        setUsername(response.data.username)
-      } else if(!response.data.logged_in && isUserLogged === 'true') {
-        setIsUserLogged('')
-        setUsername('')
-      }
-    })
-  }
-
-  useEffect(()=>{
-    checkLoginStatus();
-  })
+      .then(response=> {
+        console.log(response)
+        if(response.data.logged_in && isUserLogged === false) {
+          setIsUserLogged(true)
+          setUsername(response.data.username)
+        } else if(!response.data.logged_in && isUserLogged) {
+          setIsUserLogged(false)
+          setUsername('')
+        }
+      })
+  }, [isUserLogged, username]) 
 
   return (
     <div className="App container">

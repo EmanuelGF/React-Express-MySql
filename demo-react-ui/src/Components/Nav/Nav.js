@@ -12,8 +12,8 @@ export default function Nav(props) {
       </button>
         
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            
-      {(props.isUserLogged === 'true') ? <UserLinks username={props.username} /> : <GuestLinks /> }
+   
+      {(props.isUserLogged) ? <UserLinks username={props.username} /> : <GuestLinks /> }
 
       </div>
     </nav>
@@ -22,24 +22,16 @@ export default function Nav(props) {
 
 function GuestLinks(){
     return(
-  
       <ul className="navbar-nav mr-auto">
-  
         <li className="nav-item">
           <a className="nav-link" href="/login">Login</a>
         </li>
-  
       </ul>
     );
   }
   
-  class UserLinks extends React.Component {
-    constructor(props) {
-      super(props);
-      this.handleLogoutClick =this.handleLogoutClick.bind(this);
-    }
-
-    handleLogoutClick(event) {
+  function UserLinks(props) {
+    function handleLogoutClick(event) {
       event.preventDefault();
       axios.get('/logout').then((response)=> {
         console.log(response);
@@ -49,15 +41,13 @@ function GuestLinks(){
         alert('Something disastrous happened!')
       })
     }
-    render() {
-      return(
-        <ul className="navbar-nav mr-auto">
-             
-            <li className="nav-item">
-                <a className="nav-link" href="/" onClick={this.handleLogoutClick}>Logout</a>
-            </li>
-            <li id="greetings">(Welcome <b>{this.props.username})</b> </li>
-        </ul>
-      );
-    }
+    return(
+      <ul className="navbar-nav mr-auto">
+            
+          <li className="nav-item">
+              <a className="nav-link" href="/" onClick={handleLogoutClick}>Logout</a>
+          </li>
+          <li id="greetings">(Welcome <b>{props.username})</b> </li>
+      </ul>
+    );   
   }
