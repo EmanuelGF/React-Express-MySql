@@ -3,8 +3,8 @@
 I put togheter this VERY SIMPLE app just to practice concepts and test some ideas and YES it could be better... So feel free to share your knowledge and make this a valuable boilerplate code.  
 Anyways if you use this code make sure to add validations to both client and server side and protected routes and password encription and https and so on... you get the picture :)
 
-# Ok, so here are the specs:
-# Check it out! 
+# Here are the specs:
+
 
 * The app uses: 
     * "express": "^4.17.1",
