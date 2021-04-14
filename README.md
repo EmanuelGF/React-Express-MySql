@@ -5,7 +5,6 @@ Anyways if you use this code make sure to add validations to both client and ser
 
 # Here are the specs:
 
-
 * The app uses: 
     * "express": "^4.17.1",
     * "express-mysql-session": "^2.1.0",
@@ -27,6 +26,12 @@ Anyways if you use this code make sure to add validations to both client and ser
        * database
        * node-modules
        * server.js
+
+
+### How to
+* clone the project.
+* [npm install] on the demo-react-ui and on demo-server.
+* [npm start] on the demo-react-ui and on demo-server.
 
 
 **Notes:**
